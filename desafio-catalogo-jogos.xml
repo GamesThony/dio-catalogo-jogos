@@ -1,0 +1,129 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>desafio-catalogo-jogos</name>
+    </assembly>
+    <members>
+        <member name="M:desafio_catalogo_jogos.Controllers.V1.GamesController.Get(System.Int32,System.Int32)">
+            <summary>
+            Busca uma lista de jogos de forma paginada
+            </summary>
+            <param name="page">Número da página</param>
+            <param name="qnt">Quantidade de elementos por página</param>
+            <response code="200">Retorna a lista de jogos</response>
+            <response code="204">Caso não haja jogos na página</response>
+        </member>
+        <member name="M:desafio_catalogo_jogos.Controllers.V1.GamesController.Get(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Busca uma lista de jogos de um produtor de forma paginada
+            </summary>
+            <param name="producerId">ID do produtor</param>
+            <param name="page">Número da página</param>
+            <param name="qnt">Quantidade de elementos por página</param>
+            <response code="200">Retorna a lista de jogos do produtor</response>
+            <response code="204">Caso não haja jogos</response>
+            <response code="404">Caso o produtor seja inválido</response>
+        </member>
+        <member name="M:desafio_catalogo_jogos.Controllers.V1.GamesController.Find(System.String,System.Int32,System.Int32)">
+            <summary>
+            Busca uma lista de jogos que contém um fragmento de forma paginada
+            </summary>
+            <param name="fragment">Fragmento buscado</param>
+            <param name="page">Número da página</param>
+            <param name="qnt">Quantidade de elementos por página</param>
+            <response code="200">Retorna a lista de jogos com tal fragmento</response>
+            <response code="204">Caso não haja jogos na página</response>
+        </member>
+        <member name="M:desafio_catalogo_jogos.Controllers.V1.GamesController.InsertGame(desafio_catalogo_jogos.Models.GameInputModel)">
+            <summary>
+            Adiciona um jogo no banco de dados
+            </summary>
+            <param name="gameInputModel">Dados do jogo</param>
+            <response code="200">Jogo inserido com sucesso</response>
+            <response code="404">Caso o produtor seja inválido</response>
+            <response code="422">Caso o jogo já esteja cadastrado</response>
+        </member>
+        <member name="M:desafio_catalogo_jogos.Controllers.V1.GamesController.UpdateGame(System.Int32,desafio_catalogo_jogos.Models.GameInputModel)">
+            <summary>
+            Atualiza um jogo no banco de dados
+            </summary>
+            <param name="gameId">ID do jogo a ser atualizado</param>
+            <param name="gameInputModel">Novos dados do jogo</param>
+            <response code="200">Jogo atualizado com sucesso</response>
+            <response code="404">Caso o jogo ou produtor não foram encontrados</response>
+            <response code="422">Caso já exista um jogo com mesmo nome e produtor cadastrados</response>
+        </member>
+        <member name="M:desafio_catalogo_jogos.Controllers.V1.GamesController.UpdateGame(System.Int32,System.Double)">
+            <summary>
+            Atualiza o preço de um jogo no banco de dados
+            </summary>
+            <param name="gameId">ID do jogo</param>
+            <param name="price">Novo preço do jogo</param>
+            <response code="200">Preço atualizado com sucesso</response>
+            <response code="404">Caso o jogo não seja encontrado</response>
+        </member>
+        <member name="M:desafio_catalogo_jogos.Controllers.V1.GamesController.DeleteGame(System.Int32)">
+            <summary>
+            Remove um jogo do banco de dados
+            </summary>
+            <param name="gameId">ID do jogo</param>
+            <response code="200">Jogo removido com sucesso</response>
+            <response code="404">Caso o jogo não seja encontrado</response>
+        </member>
+        <member name="M:desafio_catalogo_jogos.Controllers.V1.ProducersController.Get(System.Int32,System.Int32)">
+            <summary>
+            Busca uma lista de produtores de forma paginada
+            </summary>
+            <param name="page">Número da página</param>
+            <param name="qnt">Quantidade de elementos por página</param>
+            <response code="200">Retorna a lista de produtores</response>
+            <response code="204">Caso não haja produtores na página</response>
+        </member>
+        <member name="M:desafio_catalogo_jogos.Controllers.V1.ProducersController.Get(System.Int32)">
+            <summary>
+            Obtem um produtor por ID
+            </summary>
+            <param name="producerId">ID do produtor</param>
+            <response code="200">Retorna os dados do produtor</response>
+            <response code="404">Caso não seja encontrado um produtor</response>
+        </member>
+        <member name="M:desafio_catalogo_jogos.Controllers.V1.ProducersController.Find(System.String,System.Int32,System.Int32)">
+            <summary>
+            Busca uma lista de produtores que contém um fragmento de forma paginada
+            </summary>
+            <param name="fragment">Fragmento buscado</param>
+            <param name="page">Número da página</param>
+            <param name="qnt">Quantidade de elementos por página</param>
+            <response code="200">Retorna a lista de produtores com tal fragmento</response>
+            <response code="204">Caso não haja produtores na página</response>
+        </member>
+        <member name="M:desafio_catalogo_jogos.Controllers.V1.ProducersController.InsertProducer(desafio_catalogo_jogos.Models.ProducerInputModel)">
+            <summary>
+            Adiciona um produtor no banco de dados
+            </summary>
+            <param name="producerInputModel">Dados do produtor</param>
+            <response code="200">Produtor inserido com sucesso</response>
+            <response code="422">Caso o produtor já esteja cadastrado</response>
+        </member>
+        <member name="M:desafio_catalogo_jogos.Controllers.V1.ProducersController.UpdateProducer(System.Int32,desafio_catalogo_jogos.Models.ProducerInputModel)">
+            <summary>
+            Atualiza um produtor no banco de dados
+            </summary>
+            <param name="producerId">ID do produtor</param>
+            <param name="producerInputModel">Novos dados do produtor</param>
+            <response code="200">Produtor atualizado com sucesso</response>
+            <response code="404">Caso o produtor não seja encontrado</response>
+            <response code="422">Caso já exista um produtor de mesmo nome cadastrado</response>
+        </member>
+        <member name="M:desafio_catalogo_jogos.Controllers.V1.ProducersController.DeleteProducer(System.Int32,System.Boolean)">
+            <summary>
+            Remove um produtor do banco de dados, excluindo ou não seus jogos do sistema
+            </summary>
+            <param name="producerId">ID do produtor</param>
+            <param name="forceDelete">Força a deleção de tanto o produtor e seus jogos</param>
+            <response code="200">Dados removidos com sucesso</response>
+            <response code="404">Caso o produtor não seja encontrado</response>
+            <response code="422">Caso o produtor ainda possua jogos com seu ID</response>
+        </member>
+    </members>
+</doc>
